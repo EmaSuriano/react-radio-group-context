@@ -1,6 +1,6 @@
 {
-  "name": "react-simple-radio-group-example",
-  "homepage": "https://EmaSuriano.github.io/react-simple-radio-group",
+  "name": "react-radio-group-context-example",
+  "homepage": "https://EmaSuriano.github.io/react-radio-group-context",
   "version": "0.0.0",
   "private": true,
   "license": "MIT",
@@ -8,7 +8,7 @@
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-simple-radio-group": "*",
+    "react-radio-group-context": "*",
     "react-scripts": "^1.1.1"
   },
   "scripts": {

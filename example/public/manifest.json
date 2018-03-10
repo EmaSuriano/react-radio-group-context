@@ -1,6 +1,6 @@
 {
-  "short_name": "react-simple-radio-group",
-  "name": "react-simple-radio-group",
+  "short_name": "react-radio-group-context",
+  "name": "react-radio-group-context",
   "start_url": "./index.html",
   "display": "standalone",
   "theme_color": "#000000",

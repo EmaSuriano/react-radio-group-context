@@ -1,11 +1,11 @@
 {
-  "name": "react-simple-radio-group",
+  "name": "react-radio-group-context",
   "version": "1.0.0",
   "description":
     "Radio Group Component for React easy to configure and compose",
   "author": "EmaSuriano",
   "license": "MIT",
-  "repository": "EmaSuriano/react-simple-radio-group",
+  "repository": "EmaSuriano/react-radio-group-context",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
