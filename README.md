@@ -1,8 +1,8 @@
 # react-radio-group-context
 
-> Radio Group Component for React easy to configure and compose
+> Radio Group Component for React write with the new Context API 😮
 
-The idea behind this library is to provide a radio group component that used new Context React API so the code would like much better!
+Right now test coverage is not working due to a problem with Enzyme and Context Tag. This is the [issue](https://github.com/airbnb/enzyme/issues/1509)
 
 [![NPM](https://img.shields.io/npm/v/react-radio-group-context.svg)](https://www.npmjs.com/package/react-radio-group-context) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
