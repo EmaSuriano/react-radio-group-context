@@ -1,39 +1,31 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-// import { Provider } from './RadioGroupContext';
+import { string, number, func, node, bool, oneOfType } from 'prop-types';
+import { Provider } from './RadioGroupContext';
 import { generateRandomName } from './utils';
 
-export const RadioGroupContext = React.createContext('radioGroup');
+const RadioGroup = ({ selected, onChange, name, disabled, children }) => (
+  <Provider
+    value={{
+      selected,
+      onChange,
+      name,
+      disabledGroup: disabled,
+    }}
+  >
+    {children}
+  </Provider>
+);
 
-class RadioGroup extends React.Component {
-  static propTypes = {
-    selected: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-      .isRequired,
-    onChange: PropTypes.func.isRequired,
-    children: PropTypes.node.isRequired,
-    name: PropTypes.string.isRequired,
-    disabled: PropTypes.bool,
-  };
+RadioGroup.propTypes = {
+  selected: oneOfType([string, number]).isRequired,
+  onChange: func.isRequired,
+  children: node.isRequired,
+  name: string.isRequired,
+  disabled: bool,
+};
 
-  static defaultProps = {
-    disabled: false,
-  };
-
-  render() {
-    const { selected, onChange, name, disabled } = this.props;
-    return (
-      <RadioGroupContext.Provider
-        value={{
-          selected,
-          onChange,
-          name,
-          disabledRadioGroup: disabled,
-        }}
-      >
-        {this.props.children}
-      </RadioGroupContext.Provider>
-    );
-  }
-}
+RadioGroup.defaultProps = {
+  disabled: false,
+};
 
 export default RadioGroup;

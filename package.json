@@ -1,7 +1,8 @@
 {
   "name": "react-radio-group-context",
-  "version": "1.0.0",
-  "description": "Radio Group Component for React easy to configure and compose",
+  "version": "1.0.1",
+  "description":
+    "Radio Group Component for React easy to configure and compose",
   "author": "EmaSuriano",
   "license": "MIT",
   "repository": "EmaSuriano/react-radio-group-context",
@@ -39,7 +40,5 @@
     "rollup-plugin-peer-deps-external": "^2.0.0",
     "rollup-plugin-postcss": "^1.1.0"
   },
-  "files": [
-    "dist"
-  ]
+  "files": ["dist"]
 }
