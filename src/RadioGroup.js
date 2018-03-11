@@ -1,7 +1,8 @@
 import React from 'react';
 import { string, number, func, node, bool, oneOfType } from 'prop-types';
 import { Provider } from './RadioGroupContext';
-import { generateRandomName } from './utils';
+
+Provider.displayName = 'RadioGroupProvider';
 
 const RadioGroup = ({ selected, onChange, name, disabled, children }) => (
   <Provider
