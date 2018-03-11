@@ -54,23 +54,65 @@ import { RadioGroupContext } from './RadioGroup';
 //   }
 // }
 
-class RadioButton extends React.Component {
-  render() {
-    const {
-      id,
-      className,
-      value,
-      disabled,
-      selected,
-      onChange,
-      nameRadioGroup,
-      disabledRadioGroup,
-    } = this.props;
+// class RadioButton extends React.Component {
+//   render() {
+//     const {
+//       id,
+//       className,
+//       value,
+//       disabled,
+//       selected,
+//       onChange,
+//       nameRadioGroup,
+//       disabledRadioGroup,
+//     } = this.props;
+//     console.log(selected);
+//     return (
+//       <input
+//         type="radio"
+//         checked={selected === id}
+//         className={className}
+//         disabled={disabled || disabledRadioGroup}
+//         id={id}
+//         value={value || id}
+//         name={nameRadioGroup}
+//         onChange={onChange}
+//       />
+//     );
+//   }
+// }
 
-    return (
+const RadioButton = props => {
+  const {
+    id,
+    className,
+    value,
+    disabled,
+    selected,
+    onChange,
+    nameRadioGroup,
+    disabledRadioGroup,
+  } = props;
+  return (
+    <input
+      type="radio"
+      checked={selected === id}
+      className={className}
+      disabled={disabled || disabledRadioGroup}
+      id={id}
+      value={value || id}
+      name={nameRadioGroup}
+      onChange={onChange}
+    />
+  );
+};
+
+const RadioButton = ({ id, value, disabled }) => (
+  <RadioGroupContext.Consumer>
+    {({ selected, onChange, disabledRadioGroup, name }) => (
       <input
         type="radio"
-        checked={selected === id}
+        {...selected && { checked: selected === id }}
         className={className}
         disabled={disabled || disabledRadioGroup}
         id={id}
@@ -78,13 +120,7 @@ class RadioButton extends React.Component {
         name={nameRadioGroup}
         onChange={onChange}
       />
-    );
-  }
-}
-
-const RadioButtonWithConsumer = props => (
-  <RadioGroupContext.Consumer>
-    {val => <RadioButton {...props} {...val} />}
+    )}
   </RadioGroupContext.Consumer>
 );
 

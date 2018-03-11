@@ -19,35 +19,7 @@ class RadioGroup extends React.Component {
     disabled: false,
   };
 
-  // static childContextTypes = {
-  //   selected: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-  //     .isRequired,
-  //   onChange: PropTypes.func.isRequired,
-  //   nameRadioGroup: PropTypes.string,
-  //   disabledRadioGroup: PropTypes.bool,
-  // };
-
-  // getChildContext() {
-  //   const { selected, onChange, name, disabled } = this.props;
-  //   console.log(name);
-  //   return {
-  //     selected: selected,
-  //     onChange,
-  //     nameRadioGroup: name,
-  //     disabledRadioGroup: disabled,
-  //   };
-  // }
-
   render() {
-    // return (
-    //   <Provider
-    //     value={{
-    //       selected: 'apple',
-    //     }}
-    //   >
-    //     {this.props.children}
-    //   </Provider>
-    // );
     const { selected, onChange, name, disabled } = this.props;
     return (
       <RadioGroupContext.Provider
