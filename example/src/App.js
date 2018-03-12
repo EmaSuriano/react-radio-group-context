@@ -11,8 +11,8 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div className="exampleContainer">
-        <p>This is an example of </p>
+      <div>
+        <p>Simple example</p>
         <RadioGroup
           name="fruits"
           selected={this.state.selectedFruit}

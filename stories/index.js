@@ -8,19 +8,6 @@ import { withState } from '@dump247/storybook-state';
 
 const stories = storiesOf('Radio Group Stories', module);
 stories.addDecorator(centered);
-/* 
-Things to show
-Easy example - Controlled
-Easy example - Uncontrolled
-
-Disabling specific options
-Disabling the whole group
-
-Different kind of children (like img)
-
-Showing hierarchy of divs , like each radioButton inside a Card
-Nested Radio Group 
-*/
 
 stories.add(
   'Controlled Component',
