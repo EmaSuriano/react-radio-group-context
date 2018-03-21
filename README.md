@@ -38,7 +38,7 @@ class Example extends Component {
           id="apple"
           name="fruits"
           onChange={this.onChangeFruit}
-          checked={this.state.selectedFruit === "apple"}
+          checked={this.state.selectedFruit === 'apple'}
         />
         <label htmlFor="apple">Apple</label>
         <br />
@@ -48,7 +48,7 @@ class Example extends Component {
           id="grapes"
           name="fruits"
           onChange={this.onChangeFruit}
-          checked={this.state.selectedFruit === "grapes"}
+          checked={this.state.selectedFruit === 'grapes'}
         />
         <label htmlFor="grapes">Grapes</label>
         <br />
@@ -58,7 +58,7 @@ class Example extends Component {
           id="orange"
           name="fruits"
           onChange={this.onChangeFruit}
-          checked={this.state.selectedFruit === "orange"}
+          checked={this.state.selectedFruit === 'orange'}
         />
         <label htmlFor="orange">Orange</label>
         <br />

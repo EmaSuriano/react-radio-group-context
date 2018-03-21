@@ -18,10 +18,10 @@ const RadioGroup = ({ selected, onChange, name, disabled, children }) => (
 );
 
 RadioGroup.propTypes = {
-  selected: oneOfType([string, number]).isRequired,
-  onChange: func.isRequired,
   children: node.isRequired,
   name: string.isRequired,
+  selected: oneOfType([string, number]),
+  onChange: func,
   disabled: bool,
 };
 

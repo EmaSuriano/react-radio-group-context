@@ -15,7 +15,7 @@ const RadioButton = ({ id, value, disabled, children }) => (
           name={name}
           onChange={onChange}
         />
-        <label for={id}>{children}</label>
+        <label htmlFor={id}>{children}</label>
       </React.Fragment>
     )}
   </Consumer>
@@ -23,7 +23,7 @@ const RadioButton = ({ id, value, disabled, children }) => (
 
 RadioButton.propTypes = {
   id: oneOfType([string, number]).isRequired,
-  value: oneOfType([string, number]).isRequired,
+  value: oneOfType([string, number]),
   disabled: bool,
   children: node,
 };
