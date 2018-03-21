@@ -40,7 +40,7 @@ class Example extends Component {
           onChange={this.onChangeFruit}
           checked={this.state.selectedFruit === "apple"}
         />
-        <label for="apple">Apple</label>
+        <label htmlFor="apple">Apple</label>
         <br />
         <input
           type="radio"
@@ -50,7 +50,7 @@ class Example extends Component {
           onChange={this.onChangeFruit}
           checked={this.state.selectedFruit === "grapes"}
         />
-        <label for="grapes">Grapes</label>
+        <label htmlFor="grapes">Grapes</label>
         <br />
         <input
           type="radio"
@@ -60,7 +60,7 @@ class Example extends Component {
           onChange={this.onChangeFruit}
           checked={this.state.selectedFruit === "orange"}
         />
-        <label for="orange">Orange</label>
+        <label htmlFor="orange">Orange</label>
         <br />
       </div>
     );
