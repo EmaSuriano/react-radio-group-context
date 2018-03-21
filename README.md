@@ -33,31 +33,34 @@ class Example extends Component {
     return (
       <div>
         <input
-          type="fruits"
+          type="radio"
           value="apple"
           id="apple"
+          name="fruits"
           onChange={this.onChangeFruit}
-          checked={this.state.selectedFruit === 'apple'}
+          checked={this.state.selectedFruit === "apple"}
         />
         <label for="apple">Apple</label>
         <br />
         <input
-          type="fruits"
+          type="radio"
           value="grapes"
           id="grapes"
+          name="fruits"
           onChange={this.onChangeFruit}
-          checked={this.state.selectedFruit === 'grapes'}
+          checked={this.state.selectedFruit === "grapes"}
         />
-        <label for="apple">Grapes</label>
+        <label for="grapes">Grapes</label>
         <br />
         <input
-          type="fruits"
+          type="radio"
           value="orange"
           id="orange"
+          name="fruits"
           onChange={this.onChangeFruit}
-          checked={this.state.selectedFruit === 'orange'}
+          checked={this.state.selectedFruit === "orange"}
         />
-        <label for="apple">Orange</label>
+        <label for="orange">Orange</label>
         <br />
       </div>
     );
