@@ -1,6 +1,7 @@
 # react-radio-group-context
 
-[![NPM](https://img.shields.io/npm/v/react-radio-group-context.svg)](https://www.npmjs.com/package/react-radio-group-context) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/react-radio-group-context.svg)](https://www.npmjs.com/package/react-radio-group-context) 
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
 > Radio Group Component for React written with the new Context API 😮
 
