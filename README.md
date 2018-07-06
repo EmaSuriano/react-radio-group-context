@@ -9,10 +9,10 @@ Right now test coverage is not working due to a problem with Enzyme and Context 
 
 This is an experimental component using a feature in React that is not official yet, so I don't recommend using it meanwhile React don't upgrade its version.
 
-**In order to use this component, you have to use the latest version of React that implement Context**
+**In order to use this component, you must use React 16.3 or above.** Older versions of React do not implement the Context API that this library depends on.
 
 ```bash
-npm install react@next react-dom@next
+npm install react react-dom
 ```
 
 ## Why?
