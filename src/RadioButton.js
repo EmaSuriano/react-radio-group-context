@@ -3,9 +3,23 @@ import { oneOf, oneOfType, string, number, bool, node } from 'prop-types'
 import cx from 'classnames'
 import { Consumer } from './RadioGroupContext'
 
-const RadioButton = ({ id, value, disabled, children, className: buttonClassName, labelPosition: buttonLabelPosition }) => (
+const RadioButton = ({ 
+  id,
+  value,
+  children,
+  disabled: buttonDisabled,
+  className: buttonClassName,
+  labelPosition: buttonLabelPosition
+}) => (
   <Consumer>
-    {({ selected, onChange, disabledGroup, name, className: groupClassName, labelPosition: groupLabelPosition }) => {
+    {({
+      selected,
+      onChange,
+      name,
+      disabled: groupDisabled,
+      className: groupClassName,
+      labelPosition: groupLabelPosition
+    }) => {
       const className = cx(buttonClassName, groupClassName)
       const labelPosition = buttonLabelPosition || groupLabelPosition
       const isBefore = labelPosition === 'before'
@@ -16,7 +30,7 @@ const RadioButton = ({ id, value, disabled, children, className: buttonClassName
           <input
             type='radio'
             {...selected && { checked: selected === id }}
-            disabled={disabled || disabledGroup}
+            disabled={buttonDisabled || groupDisabled}
             id={id}
             className={className}
             value={value || id}

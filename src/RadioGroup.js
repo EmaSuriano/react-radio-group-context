@@ -10,7 +10,7 @@ const RadioGroup = ({ selected, onChange, name, disabled, children, className, l
       selected,
       onChange,
       name,
-      disabledGroup: disabled,
+      disabled,
       className,
       labelPosition
     }}
