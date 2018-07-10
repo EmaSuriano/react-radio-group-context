@@ -1,15 +1,15 @@
-import React from 'react'
-import { oneOf, oneOfType, string, number, bool, node } from 'prop-types'
-import cx from 'classnames'
-import { Consumer } from './RadioGroupContext'
+import React from 'react';
+import { oneOf, oneOfType, string, number, bool, node } from 'prop-types';
+import cx from 'classnames';
+import { Consumer } from './RadioGroupContext';
 
-const RadioButton = ({ 
+const RadioButton = ({
   id,
   value,
   children,
   disabled: buttonDisabled,
   className: buttonClassName,
-  labelPosition: buttonLabelPosition
+  labelPosition: buttonLabelPosition,
 }) => (
   <Consumer>
     {({
@@ -18,17 +18,21 @@ const RadioButton = ({
       name,
       disabled: groupDisabled,
       className: groupClassName,
-      labelPosition: groupLabelPosition
+      labelPosition: groupLabelPosition,
     }) => {
-      const className = cx(buttonClassName, groupClassName)
-      const labelPosition = buttonLabelPosition || groupLabelPosition
-      const isBefore = labelPosition === 'before'
-      const label = <label className={className} htmlFor={id}>{children}</label>
+      const className = cx(buttonClassName, groupClassName);
+      const labelPosition = buttonLabelPosition || groupLabelPosition;
+      const isBefore = labelPosition === 'before';
+      const label = (
+        <label className={className} htmlFor={id}>
+          {children}
+        </label>
+      );
       return (
         <React.Fragment>
           {isBefore && label}
           <input
-            type='radio'
+            type="radio"
             {...selected && { checked: selected === id }}
             disabled={buttonDisabled || groupDisabled}
             id={id}
@@ -39,10 +43,10 @@ const RadioButton = ({
           />
           {!isBefore && label}
         </React.Fragment>
-      )
+      );
     }}
   </Consumer>
-)
+);
 
 RadioButton.propTypes = {
   id: oneOfType([string, number]).isRequired,
@@ -50,11 +54,11 @@ RadioButton.propTypes = {
   value: oneOfType([string, number]),
   disabled: bool,
   children: node,
-  className: string
-}
+  className: string,
+};
 
 RadioButton.defaultProps = {
-  disabled: false
-}
+  disabled: false,
+};
 
-export default RadioButton
+export default RadioButton;

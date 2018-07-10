@@ -1,10 +1,18 @@
-import React from 'react'
-import { string, number, func, node, bool, oneOf, oneOfType } from 'prop-types'
-import { Provider } from './RadioGroupContext'
+import React from 'react';
+import { string, number, func, node, bool, oneOf, oneOfType } from 'prop-types';
+import { Provider } from './RadioGroupContext';
 
-Provider.displayName = 'RadioGroupProvider'
+Provider.displayName = 'RadioGroupProvider';
 
-const RadioGroup = ({ selected, onChange, name, disabled, children, className, labelPosition }) => (
+const RadioGroup = ({
+  selected,
+  onChange,
+  name,
+  disabled,
+  children,
+  className,
+  labelPosition,
+}) => (
   <Provider
     value={{
       selected,
@@ -12,12 +20,12 @@ const RadioGroup = ({ selected, onChange, name, disabled, children, className, l
       name,
       disabled,
       className,
-      labelPosition
+      labelPosition,
     }}
   >
     {children}
   </Provider>
-)
+);
 
 RadioGroup.propTypes = {
   children: node.isRequired,
@@ -26,12 +34,12 @@ RadioGroup.propTypes = {
   selected: oneOfType([string, number]),
   onChange: func,
   disabled: bool,
-  className: string
-}
+  className: string,
+};
 
 RadioGroup.defaultProps = {
   labelPosition: 'after',
-  disabled: false
-}
+  disabled: false,
+};
 
-export default RadioGroup
+export default RadioGroup;
