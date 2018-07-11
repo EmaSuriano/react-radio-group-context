@@ -1,8 +1,7 @@
 {
   "name": "react-radio-group-context",
   "version": "1.1.2",
-  "description":
-    "Radio Group Component for React easy to configure and compose",
+  "description": "Radio Group Component for React easy to configure and compose",
   "author": "EmaSuriano",
   "license": "MIT",
   "repository": "EmaSuriano/react-radio-group-context",
@@ -20,8 +19,8 @@
   },
   "peerDependencies": {
     "prop-types": "^15.5.4",
-    "react": "^16.3.0-alpha.1",
-    "react-dom": "^16.3.0-alpha.1"
+    "react": "^16.3.0",
+    "react-dom": "^16.3.0"
   },
   "devDependencies": {
     "@dump247/storybook-state": "^1.2.4",
@@ -54,14 +53,25 @@
     "rollup-plugin-peer-deps-external": "^2.0.0",
     "rollup-plugin-postcss": "^1.1.0"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "jest": {
-    "setupFiles": ["<rootDir>/test-setup.js"],
+    "setupFiles": [
+      "<rootDir>/test-setup.js"
+    ],
     "transform": {
       "^.+\\.js$": "babel-jest"
     },
-    "moduleDirectories": ["node_modules"],
-    "collectCoverageFrom": ["src/**/*.{js,jsx}", "!src/index.js"]
+    "moduleDirectories": [
+      "node_modules"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!src/index.js"
+    ]
   },
-  "dependencies": {}
+  "dependencies": {
+    "classnames": "^2.2.6"
+  }
 }

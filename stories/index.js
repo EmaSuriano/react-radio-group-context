@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 import { RadioButton, RadioGroup } from '../src';
 import { withInfo } from '@storybook/addon-info';
 import centered from '@storybook/addon-centered';
@@ -209,6 +208,56 @@ stories.add(
             </RadioGroup>
           </div>
         )}
+      </RadioGroup>
+    )),
+  ),
+);
+
+stories.add(
+  'Custom Classes',
+  withState(
+    { selected: 'blue' },
+    withInfo()(store => (
+      <RadioGroup
+        name="colors"
+        className="color-option"
+        selected={store.state.selected}
+        onChange={({ target: { id } }) => store.set({ selected: id })}
+      >
+        <RadioButton id="red" className="red">
+          Red
+        </RadioButton>{' '}
+        <br />
+        <RadioButton id="blue" className="blue">
+          Blue
+        </RadioButton>{' '}
+        <br />
+        <RadioButton id="yellow" className="yellow">
+          Yellow
+        </RadioButton>{' '}
+        <br />
+      </RadioGroup>
+    )),
+  ),
+);
+
+stories.add(
+  'Custom Label Positions',
+  withState(
+    { selected: 'blue' },
+    withInfo()(store => (
+      <RadioGroup
+        name="colors"
+        labelPosition="before"
+        selected={store.state.selected}
+        onChange={({ target: { id } }) => store.set({ selected: id })}
+      >
+        <RadioButton id="red">Red</RadioButton> <br />
+        <RadioButton id="blue">Blue</RadioButton> <br />
+        <RadioButton id="yellow" labelPosition="after">
+          Yellow
+        </RadioButton>{' '}
+        <br />
       </RadioGroup>
     )),
   ),

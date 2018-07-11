@@ -1,3 +1,4 @@
+/* eslint-env jest */
 import React from 'react';
 import { mount } from 'enzyme';
 import { RadioGroup, RadioButton } from '../';
@@ -19,7 +20,7 @@ describe('<RadioGroup />', () => {
 
   it('should render children', () => {
     const children = radioGroup.find(RadioButton);
-    expect(chidren.exists()).toBe(true);
-    expect(chidren.text()).toBe('Children');
+    expect(children.exists()).toBe(true);
+    expect(children.text()).toBe('Children');
   });
 });
