@@ -20,11 +20,11 @@ const RadioButton = ({
       className: groupClassName,
       labelPosition: groupLabelPosition,
     }) => {
-      const className = cx(buttonClassName, groupClassName);
+      const className = cx(groupClassName, buttonClassName);
       const labelPosition = buttonLabelPosition || groupLabelPosition;
       const isBefore = labelPosition === 'before';
       const label = (
-        <label className={className} htmlFor={id}>
+        <label {...className && { className }} htmlFor={id}>
           {children}
         </label>
       );
@@ -32,9 +32,9 @@ const RadioButton = ({
         <input
           type="radio"
           {...selected && { checked: selected === id }}
+          {...className && { className }}
           disabled={buttonDisabled || groupDisabled}
           id={id}
-          className={className}
           value={value || id}
           name={name}
           onChange={onChange}
