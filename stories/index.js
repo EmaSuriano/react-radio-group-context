@@ -4,6 +4,7 @@ import { RadioButton, RadioGroup } from '../src';
 import { withInfo } from '@storybook/addon-info';
 import centered from '@storybook/addon-centered';
 import { withState } from '@dump247/storybook-state';
+import './styles.css';
 
 const stories = storiesOf('Radio Group Stories', module);
 stories.addDecorator(centered);
@@ -226,15 +227,15 @@ stories.add(
       >
         <RadioButton id="red" className="red">
           Red
-        </RadioButton>{' '}
+        </RadioButton>
         <br />
         <RadioButton id="blue" className="blue">
           Blue
-        </RadioButton>{' '}
+        </RadioButton>
         <br />
         <RadioButton id="yellow" className="yellow">
           Yellow
-        </RadioButton>{' '}
+        </RadioButton>
         <br />
       </RadioGroup>
     )),
@@ -256,7 +257,7 @@ stories.add(
         <RadioButton id="blue">Blue</RadioButton> <br />
         <RadioButton id="yellow" labelPosition="after">
           Yellow
-        </RadioButton>{' '}
+        </RadioButton>
         <br />
       </RadioGroup>
     )),

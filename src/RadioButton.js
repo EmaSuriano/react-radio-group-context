@@ -28,22 +28,19 @@ const RadioButton = ({
           {children}
         </label>
       );
-      return (
-        <React.Fragment>
-          {isBefore && label}
-          <input
-            type="radio"
-            {...selected && { checked: selected === id }}
-            disabled={buttonDisabled || groupDisabled}
-            id={id}
-            className={className}
-            value={value || id}
-            name={name}
-            onChange={onChange}
-          />
-          {!isBefore && label}
-        </React.Fragment>
+      const radio = (
+        <input
+          type="radio"
+          {...selected && { checked: selected === id }}
+          disabled={buttonDisabled || groupDisabled}
+          id={id}
+          className={className}
+          value={value || id}
+          name={name}
+          onChange={onChange}
+        />
       );
+      return isBefore ? [label, radio] : [radio, label];
     }}
   </Consumer>
 );
@@ -59,6 +56,7 @@ RadioButton.propTypes = {
 
 RadioButton.defaultProps = {
   disabled: false,
+  labelPosition: 'before',
 };
 
 export default RadioButton;

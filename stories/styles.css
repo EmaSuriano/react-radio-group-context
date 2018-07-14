@@ -1,0 +1,16 @@
+.color-option{
+  text-decoration: underline;
+  margin-left: 10px;
+}
+
+.color-option.red{
+  color: red
+}
+
+.color-option.blue{
+  color: blue
+}
+
+.color-option.yellow{
+  color: yellow
+}

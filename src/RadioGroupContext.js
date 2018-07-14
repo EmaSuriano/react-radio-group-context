@@ -1,5 +1,5 @@
 import React from 'react';
 
-const { Provider, Consumer } = React.createContext('radioGroup');
+const { Provider, Consumer } = React.createContext();
 
 export { Provider, Consumer };
