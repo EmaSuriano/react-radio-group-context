@@ -1,6 +1,7 @@
 import React from 'react';
 import { string, number, func, node, bool, oneOf, oneOfType } from 'prop-types';
 import { Provider } from './RadioGroupContext';
+import { LABEL_POSITION, DEFAULT_SHARED_PROPS } from './constants';
 
 Provider.displayName = 'RadioGroupProvider';
 
@@ -30,16 +31,13 @@ const RadioGroup = ({
 RadioGroup.propTypes = {
   children: node.isRequired,
   name: string.isRequired,
-  labelPosition: oneOf(['before', 'after']).isRequired,
+  labelPosition: oneOf(Object.values(LABEL_POSITION)),
   selected: oneOfType([string, number]),
   onChange: func,
   disabled: bool,
   className: string,
 };
 
-RadioGroup.defaultProps = {
-  labelPosition: 'after',
-  disabled: false,
-};
+RadioGroup.defaultProps = DEFAULT_SHARED_PROPS;
 
 export default RadioGroup;

@@ -1,9 +1,9 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { RadioButton, RadioGroup } from '../src';
 import { withInfo } from '@storybook/addon-info';
 import centered from '@storybook/addon-centered';
 import { withState } from '@dump247/storybook-state';
+import { RadioButton, RadioGroup } from '../src';
 import './styles.css';
 
 const stories = storiesOf('Radio Group Stories', module);

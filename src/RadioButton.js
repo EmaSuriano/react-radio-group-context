@@ -1,7 +1,8 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { oneOf, oneOfType, string, number, bool, node } from 'prop-types';
 import cx from 'classnames';
 import { Consumer } from './RadioGroupContext';
+import { LABEL_POSITION, DEFAULT_SHARED_PROPS } from './constants';
 
 const RadioButton = ({
   id,
@@ -21,55 +22,42 @@ const RadioButton = ({
       labelPosition: groupLabelPosition,
     }) => {
       const className = cx(groupClassName, buttonClassName);
-      const labelPosition = buttonLabelPosition || groupLabelPosition;
-      const isBefore = labelPosition === 'before';
-      const label = (
-        <label {...className && { className }} htmlFor={id} key={`label${id}`}>
-          {children}
+      const isBefore =
+        buttonLabelPosition !== DEFAULT_SHARED_PROPS.labelPosition ||
+        groupLabelPosition !== DEFAULT_SHARED_PROPS.labelPosition;
+
+      const disabled = buttonDisabled || groupDisabled;
+
+      const radioProps = {
+        disabled,
+        id,
+        value: value || id,
+        name,
+        onChange,
+      };
+      if (selected) radioProps.checked = selected === id;
+      const radio = <input type="radio" {...radioProps} />;
+      const [first, second] = isBefore ? [children, radio] : [radio, children];
+
+      return (
+        <label {...className && { className }} disabled={disabled}>
+          {first}
+          {second}
         </label>
       );
-      const radio = (
-        <input
-          type="radio"
-          {...selected && { checked: selected === id }}
-          {...className && { className }}
-          disabled={buttonDisabled || groupDisabled}
-          id={id}
-          value={value || id}
-          name={name}
-          onChange={onChange}
-          key={`radio${id}`}
-        />
-      );
-
-      return isBefore ? [label, radio] : [radio, label];
-
-      // return isBefore ? (
-      //   <Fragment>
-      //     {label}
-      //     {radio}
-      //   </Fragment>
-      // ) : (
-      //   <Fragment>
-      //     {radio}
-      //     {label}
-      //   </Fragment>
-      // ); // [radio, label];
     }}
   </Consumer>
 );
 
 RadioButton.propTypes = {
   id: oneOfType([string, number]).isRequired,
-  labelPosition: oneOf(['before', 'after']),
+  labelPosition: oneOf(Object.values(LABEL_POSITION)),
   value: oneOfType([string, number]),
   disabled: bool,
   children: node,
   className: string,
 };
 
-RadioButton.defaultProps = {
-  disabled: false,
-};
+RadioButton.defaultProps = DEFAULT_SHARED_PROPS;
 
 export default RadioButton;
