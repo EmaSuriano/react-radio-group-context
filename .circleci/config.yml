@@ -11,6 +11,10 @@ jobs:
 
     working_directory: ~/src
 
+    branches:
+      only:
+        - master
+
     steps:
       - checkout
 

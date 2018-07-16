@@ -1,21 +1,19 @@
 # react-radio-group-context
 
 [![NPM](https://img.shields.io/npm/v/react-radio-group-context.svg)](https://www.npmjs.com/package/react-radio-group-context) 
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+[![Code style: Prettier](https://img.shields.io/badge/Code_style-Prettier-e31f2e.svg)](https://github.com/prettier/prettier)
+[![Circle CI status](https://circleci.com/gh/EmaSuriano/react-radio-group-context.png?circle-token=:circle-token)](https://circleci.com/gh/EmaSuriano/react-radio-group-context/tree/master)
+[![Storybook](https://img.shields.io/badge/%F0%9F%93%93-Storybook-ff69b4.svg)](https://emasuriano.github.io/react-radio-group-context/)
+[![eslint](https://img.shields.io/badge/eslint-enabled-green.svg)](https://eslint.org/)
+
 
 > Radio Group Component for React written with the new Context API 😮
 
-Right now test coverage is not working due to a problem with Enzyme and Context Tag. This is the [issue](https://github.com/airbnb/enzyme/issues/1509)
-
 **In order to use this component, you must use React 16.3 or above.** Older versions of React do not implement the Context API that this library depends on.
-
-```bash
-npm install react react-dom
-```
 
 ## Why?
 
-RadioGroup in react is one the most annoying components that a web developer has to deal with it. A possible implementation wihout using Context could be like this:
+RadioGroup in react is one the most annoying components that a web developer has to deal with it. A possible implementation without using Context could be like this:
 
 ```jsx
 import React, { Component } from 'react';
@@ -31,35 +29,41 @@ class Example extends Component {
   render() {
     return (
       <div>
-        <input
-          type="radio"
-          value="apple"
-          id="apple"
-          name="fruits"
-          onChange={this.onChangeFruit}
-          checked={this.state.selectedFruit === 'apple'}
-        />
-        <label htmlFor="apple">Apple</label>
+        <label>
+          <input
+            type="radio"
+            value="apple"
+            id="apple"
+            name="fruits"
+            onChange={this.onChangeFruit}
+            checked={this.state.selectedFruit === 'apple'}
+          />
+          Apple
+        </label>
         <br />
-        <input
-          type="radio"
-          value="grapes"
-          id="grapes"
-          name="fruits"
-          onChange={this.onChangeFruit}
-          checked={this.state.selectedFruit === 'grapes'}
-        />
-        <label htmlFor="grapes">Grapes</label>
+        <label>
+          <input
+            type="radio"
+            value="grapes"
+            id="grapes"
+            name="fruits"
+            onChange={this.onChangeFruit}
+            checked={this.state.selectedFruit === 'grapes'}
+          />
+          Grapes
+        </label>
         <br />
-        <input
-          type="radio"
-          value="orange"
-          id="orange"
-          name="fruits"
-          onChange={this.onChangeFruit}
-          checked={this.state.selectedFruit === 'orange'}
-        />
-        <label htmlFor="orange">Orange</label>
+        <label>
+          <input
+            type="radio"
+            value="orange"
+            id="orange"
+            name="fruits"
+            onChange={this.onChangeFruit}
+            checked={this.state.selectedFruit === 'orange'}
+          />
+          Orange
+        </label>
         <br />
       </div>
     );
@@ -72,7 +76,7 @@ That's a lot of code just to create a radio group in React! Time to see how we c
 ## Install
 
 ```bash
-npm install --save react-radio-group-context
+yarn add react-radio-group-context
 ```
 
 ## Usage
@@ -116,6 +120,52 @@ import { RadioButton, RadioGroup } from 'react-radio-group-context';
 const Example = () => (
   <RadioGroup name="fruits">
     <RadioButton id="apple">Apple</RadioButton> <br />
+    <RadioButton id="grapes">Grapes</RadioButton> <br />
+    <RadioButton id="orange">Orange</RadioButton> <br />
+  </RadioGroup>
+);
+```
+
+## Label Position
+
+```jsx
+import React, { Component } from 'react';
+import { RadioButton, RadioGroup } from 'react-radio-group-context';
+
+const GroupLabelBefore = () => (
+  <RadioGroup name="fruits" labelPosition="before">
+    <RadioButton id="apple">Apple</RadioButton> <br />
+    <RadioButton id="grapes">Grapes</RadioButton> <br />
+    <RadioButton id="orange">Orange</RadioButton> <br />
+  </RadioGroup>
+);
+
+const ItemsLabelBefore = () => (
+  <RadioGroup name="fruits">
+    <RadioButton id="apple" labelPosition="before">Apple</RadioButton> <br />
+    <RadioButton id="grapes">Grapes</RadioButton> <br />
+    <RadioButton id="orange" labelPosition="before">Orange</RadioButton> <br />
+  </RadioGroup>
+);
+```
+
+## Disabling
+
+```jsx
+import React, { Component } from 'react';
+import { RadioButton, RadioGroup } from 'react-radio-group-context';
+
+const GroupDisabled = () => (
+  <RadioGroup name="fruits" disabled>
+    <RadioButton id="apple">Apple</RadioButton> <br />
+    <RadioButton id="grapes">Grapes</RadioButton> <br />
+    <RadioButton id="orange">Orange</RadioButton> <br />
+  </RadioGroup>
+);
+
+const ItemsDisabled = () => (
+  <RadioGroup name="fruits">
+    <RadioButton id="apple" disabled>Apple</RadioButton> <br />
     <RadioButton id="grapes">Grapes</RadioButton> <br />
     <RadioButton id="orange">Orange</RadioButton> <br />
   </RadioGroup>
