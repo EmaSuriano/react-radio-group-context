@@ -1,6 +1,6 @@
 {
   "name": "react-radio-group-context",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "Radio Group Component for React easy to configure and compose",
   "author": "EmaSuriano",
   "license": "MIT",
@@ -43,6 +43,7 @@
     "gh-pages": "^1.1.0",
     "jest": "^22.4.2",
     "node-sass": "^4.9.2",
+    "raf": "^3.4.0",
     "react": "^16.3.0-alpha.1",
     "react-dom": "^16.3.0-alpha.1",
     "react-scripts": "^1.1.1",
