@@ -1,6 +1,6 @@
 /* eslint-env jest */
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, render } from 'enzyme';
 import { RadioGroup, RadioButton } from '../';
 
 const getRadioById = (radioGroup, id) =>
@@ -34,26 +34,26 @@ describe('<RadioGroup />', () => {
     expect(onChangeCb.mock.calls[0][0].target.id).toBe('grapes');
   });
 
-  describe('Uncontrolled', () => {
-    beforeEach(() => {
-      radioGroup = mount(
-        <RadioGroup name="fruits" onChange={onChangeCb}>
-          <RadioButton id="apple" /> Apple <br />
-          <RadioButton id="grapes" /> Grapes<br />
-          <RadioButton id="orange" /> Orange<br />
-        </RadioGroup>,
-      );
-    });
+  // describe('Uncontrolled', () => {
+  //   beforeEach(() => {
+  //     radioGroup = mount(
+  //       <RadioGroup name="fruits" onChange={onChangeCb}>
+  //         <RadioButton id="apple" /> Apple <br />
+  //         <RadioButton id="grapes" /> Grapes<br />
+  //         <RadioButton id="orange" /> Orange<br />
+  //       </RadioGroup>,
+  //     );
+  //   });
 
-    xit('should change selected checkbox after clicking on it', () => {
-      let appleRadio = getRadioById(radioGroup, 'apple');
-      appleRadio.simulate('change');
+  //   xit('should change selected checkbox after clicking on it', () => {
+  //     let appleRadio = getRadioById(radioGroup, 'apple');
+  //     appleRadio.simulate('change');
 
-      appleRadio = getRadioById(radioGroup, 'apple');
+  //     appleRadio = getRadioById(radioGroup, 'apple');
 
-      expect(appleRadio.prop('checked')).toBe(true);
-    });
-  });
+  //     expect(appleRadio.prop('checked')).toBe(true);
+  //   });
+  // });
 
   describe('Controlled', () => {
     it('should marked as checked the selected radio button', () => {
@@ -61,10 +61,11 @@ describe('<RadioGroup />', () => {
       expect(appleRadio.prop('checked')).toBe(true);
     });
 
-    xit('should change selected checkbox on sending new selected', () => {
+    it('should change selected checkbox on sending new selected', () => {
       radioGroup.setProps({ selected: 'grapes' });
       const appleRadio = getRadioById(radioGroup, 'apple');
       const grapesRadio = getRadioById(radioGroup, 'grapes');
+
       expect(grapesRadio.prop('checked')).toBe(true);
       expect(appleRadio.prop('checked')).toBe(false);
     });
@@ -137,8 +138,10 @@ describe('<RadioGroup />', () => {
     it('should merge group className with radio className', () => {
       radioGroup = mount(
         <RadioGroup name="fruits" className="groupClass">
-          <RadioButton id="apple" className="radioClass" /> Apple <br />
-          <RadioButton id="grapes" /> Grapes<br />
+          <RadioButton id="apple" className="radioClass">
+            Apple
+          </RadioButton>
+          <RadioButton id="grapes">Grapes</RadioButton>
         </RadioGroup>,
       );
 
@@ -152,17 +155,46 @@ describe('<RadioGroup />', () => {
   });
 
   describe('labelPosition', () => {
+    const getRadioButtonArray = radioGroup =>
+      radioGroup.find(RadioButton).map(x => x);
+
     it('should change label position to every RadioButton when sending to RadioGroup', () => {
       radioGroup = mount(
-        <RadioGroup name="fruits" labelPosition="after">
-          <RadioButton id="apple" /> Apple <br />
-          <RadioButton id="grapes" /> Grapes<br />
+        <RadioGroup name="fruits" labelPosition="before">
+          <RadioButton id="apple">Apple</RadioButton>
+          <RadioButton id="grapes">Grapes</RadioButton>
+        </RadioGroup>,
+      );
+      const [appleRadioButton, grapesRadioButton] = getRadioButtonArray(
+        radioGroup,
+      );
+
+      expect(appleRadioButton.childAt(0).is('label')).toBe(true);
+      expect(appleRadioButton.childAt(1).is('input')).toBe(true);
+
+      expect(grapesRadioButton.childAt(0).is('label')).toBe(true);
+      expect(grapesRadioButton.childAt(1).is('input')).toBe(true);
+    });
+
+    it('should change label position of RadioButton', () => {
+      radioGroup = mount(
+        <RadioGroup name="fruits">
+          <RadioButton id="apple"> Apple </RadioButton>
+          <RadioButton id="grapes" labelPosition="before">
+            Grapes
+          </RadioButton>
         </RadioGroup>,
       );
 
-      console.log(radioGroup.debug());
-    });
+      const [appleRadioButton, grapesRadioButton] = getRadioButtonArray(
+        radioGroup,
+      );
 
-    it('should change label position of RadioButton', () => {});
+      expect(appleRadioButton.childAt(0).is('input')).toBe(true);
+      expect(appleRadioButton.childAt(1).is('label')).toBe(true);
+
+      expect(grapesRadioButton.childAt(0).is('label')).toBe(true);
+      expect(grapesRadioButton.childAt(1).is('input')).toBe(true);
+    });
   });
 });

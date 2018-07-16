@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { oneOf, oneOfType, string, number, bool, node } from 'prop-types';
 import cx from 'classnames';
 import { Consumer } from './RadioGroupContext';
@@ -24,7 +24,7 @@ const RadioButton = ({
       const labelPosition = buttonLabelPosition || groupLabelPosition;
       const isBefore = labelPosition === 'before';
       const label = (
-        <label {...className && { className }} htmlFor={id}>
+        <label {...className && { className }} htmlFor={id} key={`label${id}`}>
           {children}
         </label>
       );
@@ -38,9 +38,23 @@ const RadioButton = ({
           value={value || id}
           name={name}
           onChange={onChange}
+          key={`radio${id}`}
         />
       );
+
       return isBefore ? [label, radio] : [radio, label];
+
+      // return isBefore ? (
+      //   <Fragment>
+      //     {label}
+      //     {radio}
+      //   </Fragment>
+      // ) : (
+      //   <Fragment>
+      //     {radio}
+      //     {label}
+      //   </Fragment>
+      // ); // [radio, label];
     }}
   </Consumer>
 );
@@ -56,7 +70,6 @@ RadioButton.propTypes = {
 
 RadioButton.defaultProps = {
   disabled: false,
-  labelPosition: 'before',
 };
 
 export default RadioButton;

@@ -249,15 +249,15 @@ stories.add(
     withInfo()(store => (
       <RadioGroup
         name="colors"
-        labelPosition="before"
         selected={store.state.selected}
         onChange={({ target: { id } }) => store.set({ selected: id })}
       >
         <RadioButton id="red">Red</RadioButton> <br />
-        <RadioButton id="blue">Blue</RadioButton> <br />
-        <RadioButton id="yellow" labelPosition="after">
-          Yellow
+        <RadioButton id="blue" labelPosition="before">
+          Blue
         </RadioButton>
+        <br />
+        <RadioButton id="yellow">Yellow</RadioButton>
         <br />
       </RadioGroup>
     )),
