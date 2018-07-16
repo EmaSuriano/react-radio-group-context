@@ -45,21 +45,20 @@
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.10.0",
     "gh-pages": "^1.1.0",
-    "jest": "^22.4.2",
-    "jest-cli": "^23.4.1",
     "node-sass": "^4.9.2",
     "raf": "^3.4.0",
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1",
-    "react-reconciler": "^0.12.0",
-    "react-test-renderer": "^16.2.0",
+    "react-scripts": "^1.1.4",
     "rollup": "^0.54.1",
     "rollup-plugin-babel": "^3.0.3",
     "rollup-plugin-commonjs": "^8.2.1",
     "rollup-plugin-node-resolve": "^3.0.2",
     "rollup-plugin-peer-deps-external": "^2.0.0",
     "rollup-plugin-postcss": "^1.1.0",
-    "style-loader": "^0.21.0"
+    "style-loader": "^0.21.0",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-reconciler": "^0.12.0",
+    "react-test-renderer": "^16.4.1"
   },
   "files": [
     "dist"
@@ -77,7 +76,8 @@
     ],
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}",
-      "!src/index.js"
+      "!src/index.js",
+      "!src/**/__test__/*.{js}"
     ]
   },
   "dependencies": {
