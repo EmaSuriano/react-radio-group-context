@@ -1,0 +1,19 @@
+notifications:
+  email: false
+
+cache:
+  directories:
+    - node_modules
+
+language: node_js
+node_js:
+  - "10"
+
+script:
+  - yarn test
+  - yarn lint
+  - yarn build
+
+branches:
+  only:
+    - master

@@ -12,7 +12,6 @@
     "build": "rollup -c",
     "start": "rollup -c -w",
     "test": "jest --coverage --env=jsdom",
-    "test:watch": "jest --watch --env=jsdom",
     "storybook": "start-storybook -p 9009",
     "deploy": "build-storybook && gh-pages -d storybook-static",
     "lint": "eslint ./src"
